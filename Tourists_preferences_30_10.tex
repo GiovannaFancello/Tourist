@@ -1,0 +1,159 @@
+\documentclass[a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{amssymb}
+
+\author{Olivier Cailloux, Giovanna Fancello, ...}
+\title{Tourists'preferences ...}
+\pagenumbering{arabic}
+\begin{document}
+\maketitle
+\begin{abstract}
+abstract
+
+abstract
+
+abstract
+
+abstract
+\end{abstract}
+
+\tableofcontents
+
+
+\section{Introduction}
+\begin{itemize}
+   \item [-]state of the art and aim of the paper
+   \item [-]the tourist as one of the population in the city
+   \item [-]the possibility to access to some urban opportunity in order to improve their urban-quality of life
+ \end{itemize}
+\textbf{Main Objective.}
+To define the tourists values in space in respect to the correspondent tourist socio-professional class and behaviours.
+
+\section{Alghero case study}
+
+\textbf{Case Study.}
+The city of Alghero and his territory in the 2014 touristic "low season" (October-November) considering that Alghero's peek period is the summer season, with highest tourist concentration between July and September. Data collection is carried out in a touristic low season period because we want to catch urban limits and opportunities in a period of reduction of urban activities and not bathing season and in order to have significant results for a tourist public policy aimed to deseasonalize this trend.
+\textbf{Data}
+We have 75 questionnaires representing \textbf{225 tourists $T$} described by a \textbf{set of attributes $A$}
+\begin{equation}
+A=\{gender,age,country,level of study,profession,willingness to pay\}
+\end{equation}
+We know \textbf{tourists' paths} in the territory, in the space described by \textbf{Coordinates} and \textbf{Time}.
+Let $S$ denote the set of possible coordinates and $\tau$ the set of possible times.  A path is a set of points $P \subseteq S \times \tau$.\\
+Finally we define a set of \textbf{Categories of places} $C \in S$ that a tourist can choose in Alghero city.
+Let $C=\{c_1, \ldots, c_7\}$ denote the set of categories of places.
+
+\begin{table}[h]
+\begin{tabular}{ll}
+\hline
+\textbf{Categories of places}&\textbf{Places}\\
+\hline
+\parbox{5cm}{Environmental elements (local)}&\parbox{6cm}{Lido, M. Pia, \dots}\\
+\parbox{5cm}{Environmental elements (territorial)}&\parbox{6cm}{Grotte di Nettuno, Punta Giglio, Spiaggia del Lazzaretto, \dots}\\
+\parbox{5cm}{Historical and archaeological elements (local)}&\parbox{6cm}{Cattedrale,Bastioni,Historical centre, \dots}\\
+\parbox{5cm}{Historical and archaeological elements (territorial)}&\parbox{6cm}{Fertilia, Castelsardo, Stintino, nuraghe Palmavera, \dots}\\
+\parbox{5cm}{Cultural Elements}&\parbox{6cm}{Theater, Cinema, Museum, \dots}\\
+\parbox{5cm}{Food services}&\parbox{6cm}{Restaurants, Market,\dots}\\
+\parbox{5cm}{Leisure}&\parbox{6cm}{Waterfront, Public Gardens, Harbor, \dots}\\
+\parbox{5cm}{Other}&\parbox{6cm}{Stay in the Hotel, friends' home, Route from one place to another, \dots}\\
+\hline
+\end{tabular}
+
+\caption{\textbf{Categories of places}}\
+\label{Table}
+\end{table}
+
+Starting with these considerations, we define a \textbf{vector path} $x: C \rightarrow R^+$ as a function that maps each category of places to a number of seconds.
+We associate to each tourist $t \in T $ a vector path $x^t$.
+Let $X={\mathbb{R}^+}^C$ denote the set of all possible vector paths.
+
+We define a preference relation $S \subseteq X \times X $ as a binary relation over the set of possible vector paths.
+
+Our objective is to associate to each tourist $t \in T$ a preference relation $S_t$ which represents according to our model the way the tourist evaluates the possible paths.
+We represent preference relations using additive value functions. Let $u^t$ denote the value function of tourist $t$. We define $S_t$ from  $u^t$ as follows:
+\begin{equation}
+(x_1,x_2) \in S_t \text { iff } u^t(x_1) \geq u^t(x_2).
+\end{equation}
+
+Our objective is thus to obtain $u^t$ from the path data.
+
+We assume that $u^t$ can be represented as a weighted sum  of partial value functions:
+\begin{equation}
+u^t(x) = \sum_{c \in C} u_c(x_c) w^t_c,
+\end{equation}
+where $w^t \in [0,1]$ represents the weight that the tourist $t$ gives to the category $c$.
+
+We assume for now that the partial value functions $\{u_c\}$ are the same for each tourists $t \in T$, but the weights may depend on tourist $t$.
+
+Given a category $c \in C$, we define a partial value function $u_c:{\mathbb{R}^+} \rightarrow [0,1]$. The number $u_c(x_c)$ represents the value we assume the tourists give to spending $x_c$ seconds in the category $c$, not taking into account the partial weight $w^t_c$.
+
+We define each $u_c$ as a two or three linear pieces function. Its maximum $u_c(m_c)=1$ is attained at $m_c$, the mean of the time spent in the category of place $c$ by all tourists. The minimum is given at the maximum time that a tourist can spend in a day visiting and acting in the territory.
+
+We define five outstanding paths $x_{O_1}, \ldots, x_{O_5}$ that we assume tourists have considered. The outstanding paths are defined by a combination of categories of places $C$ and time $\tau$ they ideally spend in.
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\hline
+\textbf{Outstanding paths}\\
+\hline
+\parbox{11cm}{Environmental local (6h),Cultural (1h) and Food services (3h), other (4h)}\\
+\parbox{11cm}{Environmental territorial(7h) and Food services (3h), other (4h)}\\
+\parbox{11cm}{Cultural (2h), Leisure (6h) and Food services (2h, other (4h)}\\
+\parbox{11cm}{Historical local(4), Leisure(4h), and Food services (2h), other (4h)}\\
+\parbox{11cm}{Historical territorial (7h) and Food services (3h, other (4h)}\\
+\hline
+\end{tabular}
+\caption{\textbf{Outstanding paths}}\
+\label{Table}
+\end{table}
+
+
+We assume that the tourist $t$ prefers the path $x^t$ he has chosen to each of the outstanding paths: $u^t(x^t) \geq u^t(x_{O_i}), 1 \leq  i \leq 5$.
+
+
+\section{Method}
+
+
+\begin{enumerate}
+\item \textbf{Splitting the space} Subdivide the territory in different spaces $s$.
+\item \textbf{Classification of spaces.} Classify each space $s$ in a Category of places $c$
+\item \textbf{Counting the time.} For each tourists' path we analyse the time spent for each category of place $c$.For each $s$ we analyse how much time $T$ the tourists $t$ spent in it. The time spent in each category is given by the  sum of the different ranges of time in this category of place. We consider that each tourist has 15 hours to spend in a day.
+\item \textbf{Value functions}. We define the value function for each tourist with the UTA method and the DIVIZ software.
+\item \textbf{Defining weights}. We define the importance that each tourist gives to visit the different spaces.
+\item \textbf{Clustering to define tourists' profiles}.
+
+\end{enumerate}
+
+
+\section{Results}
+\dots Results
+
+\section{Conclusions}
+\dots results \dots
+
+
+\section{other data}
+We know the \textbf{tourist declared preferences} (why they choose to stay in Alghero and what they want to do). The criteria the tourists used to choose to visit Alghero are ordered by importance with an evaluation scale. Let's have for each tourists' criteria $zt \in Zt$ a value $n \in \xi$ with $\xi\{1,2,3,4,5\}$
+\begin{equation}
+\begin{split}
+Zt&=n\{Economy,Environment,Weather,Food,Culture,Recreation,\\
+&Entertainment,Study,Work,Relax,Friends and relatives,others\}
+\end{split}
+\end{equation}
+
+
+We know how the tourists planned to spend their time during the holidays in Alghero.  Let's have for each tourists' action $at\in At$, a value $m \in \lambda$ with $\lambda\{1,0\}$
+\begin{equation}
+\begin{split}
+At=m\{Environmental,Surrounding,Leisure,Fun,Food,Cultural,\\
+& Work\}
+\end{split}
+\end{equation}
+
+
+\end{document}
