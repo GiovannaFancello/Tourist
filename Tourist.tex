@@ -6,8 +6,12 @@
 \usepackage{color}
 \usepackage{graphics}
 \usepackage{amssymb}
+\usepackage{biblatex}
+\bibliography{tourist}
 
-\author{Olivier Cailloux, Giovanna Fancello, ...}
+
+
+\author{Olivier Cailloux, Giovanna Fancello, Alexis Tsoukiàs,...}
 \title{Tourists'preferences ...}
 \pagenumbering{arabic}
 \begin{document}
@@ -29,7 +33,7 @@ abstract
 \begin{itemize}
    \item [-]state of the art and aim of the paper
    \item [-]the tourist as one of the population in the city
-   \item [-]the possibility to access to some urban opportunity in order to improve their urban-quality of life
+   \item [-]the possibility to access to some urban opportunity in order to improve their urban-quality of life (in a capability theory point of view)
  \end{itemize}
 \textbf{Main Objective.}
 To define the tourists values in space in respect to the correspondent tourist socio-professional class and behaviours.
@@ -74,7 +78,9 @@ Let $X={\mathbb{R}^+}^C$ denote the set of all possible vector paths.
 
 We define a preference relation $S \subseteq X \times X $ as a binary relation over the set of possible vector paths.
 
-Our objective is to associate to each tourist $t \in T$ a preference relation $S_t$ which represents according to our model the way the tourist evaluates the possible paths.
+Our objective is to associate to each tourist $t \in T$ a preference relation $S_t$ which represents according to our model the way the tourist evaluates the possible paths in the Alghero territory. A preference relation is given when the tourist can freely choose a path to another in respect to his individual characteristics (age, gender,\dots) and to his personal (income,\dots) and spatial resources (means of transport, \dots) (SEN). Let $X^t {\subseteq}X$ denote the set of all vector paths that can be freely  chosen by $t$.
+
+
 We represent preference relations using additive value functions. Let $u^t$ denote the value function of tourist $t$. We define $S_t$ from  $u^t$ as follows:
 \begin{equation}
 (x_1,x_2) \in S_t \text { iff } u^t(x_1) \geq u^t(x_2).
@@ -88,24 +94,48 @@ u^t(x) = \sum_{c \in C} u_c(x_c) w^t_c,
 \end{equation}
 where $w^t \in [0,1]$ represents the weight that the tourist $t$ gives to the category $c$.
 
-We assume for now that the partial value functions $\{u_c\}$ are the same for each tourists $t \in T$, but the weights may depend on tourist $t$.
+We assume for now that the partial value functions $\{u_c\}$ are the same for each tourists $t \in T$ (\textcolor{red}{or not?}), but the weights may depend on tourist $t$.
 
-Given a category $c \in C$, we define a partial value function $u_c:{\mathbb{R}^+} \rightarrow [0,1]$. The number $u_c(x_c)$ represents the value we assume the tourists give to spending $x_c$ seconds in the category $c$, not taking into account the partial weight $w^t_c$.
+Given a category $c \in C$, we define a partial value function $u_c:{\mathbb{R}^+} \rightarrow [0,1]$. The number $u_c(x_c)$ represents the value we assume the tourist gives to spending $x_c$ seconds in the category $c$, not taking into account the partial weight $w^t_c$.
 
-We define each $u_c$ as a two or three linear pieces function. Its maximum $u_c(m_c)=1$ is attained at $m_c$, the mean of the time spent in the category of place $c$ by all tourists. The minimum is given at the maximum time that a tourist can spend in a day visiting and acting in the territory.
+We define each $u_c$ as a two linear pieces increasing function determined by the UTA method (\textcolor{red}{TO BE COMPLETED} \dots) .
 
-We define five outstanding paths $x_{O_1}, \ldots, x_{O_5}$ that we assume tourists have considered. The outstanding paths are defined by a combination of categories of places $C$ and time $\tau$ they ideally spend in.
+In order to define a set of  possible tourists' preferences we consider the relation among the path chosen by the tourist and a set of outstanding paths.The outstanding paths are defined by a combination of categories of places $C$ and time $\tau$ they ideally spend in. A tourist's preference is verified if the tourist $t$ chooses a path internal to the his choice set $x_1 \in X^t$ to another $x_2 \in X^t$. We define an outstanding path as a path that a tourist can freely choose in respect to his personal characteristics and spatial and personal resources (\textcolor{red}{TO BE COMPLETED} \dots). We define three possible set of outstanding path:
+                                            \begin{itemize}
+                                                \item \textbf{Hard set}: all the tourist paths can be considered as outstanding paths. This means that a tourist $t$ prefers his path to all the other tourists' paths. But, as each tourist has his personal set of possible paths (in a capability framework), it is possible that $X^{t_1}\cap X^{t_2}$ or that $X^{t_1}\neq X^{t_2}$.
+                                                \item \textbf{Soft set}: a set of outstanding paths \dots , not expensive and reachable on foot. This permits to consider a sort of basic set of paths (that every tourist can freely choose). We define five outstanding paths $x_{O_1}, \ldots, x_{O_5}$ that we assume tourists have considered. We assume that the tourist $t$ prefers the path $x^t$ he has chosen to each of the outstanding paths: $u^t(x^t) \geq u^t(x_{O_i}), 1 \leq  i \leq 5$.
+                                                    \subitem - But, how we can define this set?
+                                                    \subitem - We started to do this with 5 outstanding paths but results demonstrate the necessity to enlarge the set of path considered. 
+                                                \item \textbf{Soft set2}: a set of outstanding paths that we are sure that every tourist can do and that he doesn't prefer: for example, to spend all the day in a category of place.We define eight outstanding paths $x_{O_1}, \ldots, x_{O_8}$ that we assume tourists have considered.We assume that the tourist $t$ prefers the path $x^t$ he has chosen to each of the outstanding paths: $u^t(x^t) \geq u^t(x_{O_i}), 1 \leq  i \leq 8$.
+                                                    \subitem - We started to do this but the software seems to have problems because give for each tourist the same result and results are not correct.
+                                              \end{itemize}
+
+!but not all the people has the same characteristics and the same resources, so we need to define different outstanding paths.(\textcolor{red}{TO BE COMPLETED} \dots)
+
+
+
 \begin{table}[h]
 \centering
 \begin{tabular}{ll}
 \hline
 \textbf{Outstanding paths}\\
 \hline
-\parbox{11cm}{Environmental local (6h),Cultural (1h) and Food services (3h), other (4h)}\\
-\parbox{11cm}{Environmental territorial(7h) and Food services (3h), other (4h)}\\
-\parbox{11cm}{Cultural (2h), Leisure (6h) and Food services (2h, other (4h)}\\
-\parbox{11cm}{Historical local(4), Leisure(4h), and Food services (2h), other (4h)}\\
-\parbox{11cm}{Historical territorial (7h) and Food services (3h, other (4h)}\\
+\textbf{Soft set}\\
+\parbox{2cm}{Op1}&\parbox{8cm}{Environmental local (6h),Cultural (1h) and Food services (3h), other (4h)}\\
+\parbox{2cm}{Op2}&\parbox{8cm}{Environmental territorial(7h) and Food services (3h), other (5h)}\\
+\parbox{2cm}{Op3}&\parbox{8cm}{Historical local (2h), Cultural (2h), Leisure (6h) and Food services (2h), other (3h)}\\
+\parbox{2cm}{Op4}&\parbox{8cm}{Historical local(4h), Leisure(3h), and Food services (1h), other (7h)}\\
+\parbox{2cm}{Op5}&\parbox{8cm}{Historical territorial (7h), Historical local(3h), and Food services (3h), other (2h)}\\
+\hline
+\textbf{Soft set2}\\
+\parbox{2cm}{Op1}&\parbox{8cm}{Environmental local (15h)}\\
+\parbox{2cm}{Op2}&\parbox{8cm}{Environmental territorial(15h)}\\
+\parbox{2cm}{Op3}&\parbox{8cm}{Historical local(15h)}\\
+\parbox{2cm}{Op4}&\parbox{8cm}{Historical territorial (15h)}\\
+\parbox{2cm}{Op5}&\parbox{8cm}{Cultural (15h)}\\
+\parbox{2cm}{Op6}&\parbox{8cm}{Food services (15h)}\\
+\parbox{2cm}{Op7}&\parbox{8cm}{Leisure(15h)}\\
+\parbox{2cm}{Op8}&\parbox{8cm}{Other (15h)}\\
 \hline
 \end{tabular}
 \caption{\textbf{Outstanding paths}}\
@@ -113,7 +143,7 @@ We define five outstanding paths $x_{O_1}, \ldots, x_{O_5}$ that we assume touri
 \end{table}
 
 
-We assume that the tourist $t$ prefers the path $x^t$ he has chosen to each of the outstanding paths: $u^t(x^t) \geq u^t(x_{O_i}), 1 \leq  i \leq 5$.
+
 
 
 \section{Method}
@@ -154,6 +184,8 @@ At=m\{Environmental,Surrounding,Leisure,Fun,Food,Cultural,\\
 & Work\}
 \end{split}
 \end{equation}
+
+\printbibliography{Tourist.bib}
 
 
 \end{document}
