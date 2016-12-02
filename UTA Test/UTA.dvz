@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE workflow PUBLIC "-//Telecom Bretagne//DTD XML Praxis Workflow 3.0//EN" "http://perso.telecom-bretagne.eu/~bigaret/praxis/dtd/workflow_3.0.dtd">
+
+<workflow>
+    <id>ACED0005757200135B4C6A6176612E6C616E672E4F626A6563743B90CE589F1073296C020000787000000002737200116A6176612E726D692E6467632E564D4944F8865BAFA4A56DB60200025B0004616464727400025B424C00037569647400154C6A6176612F726D692F7365727665722F5549443B7870757200025B42ACF317F8060854E0020000787000000008EA8E4A97A03140A6737200136A6176612E726D692E7365727665722E5549440F12700DBF364F12020003530005636F756E744A000474696D65490006756E69717565787083F900000158B5A6B461C48DBAEA74001053696D706C6520646F6D696E616E6365</id>
+    <name>Simple dominance</name>
+    <user>d015a126022ad191_-40d2f8f1_157c29d6856_-8000</user>
+    <inputs>
+        <input type="file" x="0" y="125" name="" id="0">
+            <infile>alternatives.xml</infile>
+        </input>
+        <input type="file" x="0" y="175" name="" id="1">
+            <infile>alternativesRanks.xml</infile>
+        </input>
+        <input type="file" x="0" y="225" name="" id="2">
+            <infile>criteria.xml</infile>
+        </input>
+        <input type="file" x="0" y="325" name="" id="3">
+            <infile>criteriaSegments.xml</infile>
+        </input>
+        <input type="file" x="0" y="275" name="" id="4">
+            <infile>performances.xml</infile>
+        </input>
+    </inputs>
+    <programs>
+        <program idref="ITTB___UTA___1.0" x="275" y="100" info="ITTB UTA 1.0" id="UTA-1">
+            <parameter idref="methodParameters">
+                <data />
+            </parameter>
+            <parameter idref="methodParameters-dep">
+                <info name="Use methodParameters as input?" value="1" />
+                <data>1</data>
+            </parameter>
+            <parameter idref="methodParameters-use-file-dep">
+                <info name="Supply methodParameters as a file?" value="0" />
+                <data>0</data>
+            </parameter>
+            <parameter idref="methodParameters-gui-value-placeholder-1">
+                <info name="Post-optimality analysis:" value="Yes" />
+                <data>true</data>
+            </parameter>
+            <parameter idref="alternatives">
+                <data input_id="0" />
+            </parameter>
+            <parameter idref="alternativesRanks">
+                <data input_id="1" />
+            </parameter>
+            <parameter idref="criteria">
+                <data input_id="2" />
+            </parameter>
+            <parameter idref="performanceTable">
+                <data input_id="4" />
+            </parameter>
+            <parameter idref="criteriaSegments">
+                <data input_id="3" />
+            </parameter>
+            <parameter idref="valueFunctions">
+                <data>UTA-1.valueFunctions</data>
+            </parameter>
+            <parameter idref="messages">
+                <data>UTA-1.messages</data>
+            </parameter>
+            <parameter idref="TIMEOUT">
+                <info name="Timeout? (0 for no timeout)" value="60" />
+                <data>60</data>
+            </parameter>
+            <parameter idref="VERBOSE">
+                <info name="Verbose mode" value="Moderately verbose" />
+                <data>T2</data>
+            </parameter>
+        </program>
+    </programs>
+</workflow>
+
