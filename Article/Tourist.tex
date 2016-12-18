@@ -1,33 +1,24 @@
-\documentclass[a4paper]{article}
-\usepackage[latin1]{inputenc}
-\usepackage[english]{babel}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb}
-\usepackage{color}
-\usepackage{graphics}
-\usepackage{amssymb}
-\usepackage{biblatex}
-\bibliography{tourist}
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[version=last, pagesize, twoside=semi, DIV=calc, 12pt, a4paper, french, english]{scrartcl}
+\input{preamble/packages}
+\input{preamble/math_basics}
+\input{preamble/math_mine}
+\input{preamble/redac}
+\input{preamble/draw}
+\input{preamble/acronyms}
 
-
-
-\author{Olivier Cailloux, Giovanna Fancello, Alexis Tsoukiàs,...}
-\title{Tourists'preferences ...}
-\pagenumbering{arabic}
 \begin{document}
+\title{Tourists'preferences ...}
+\author{Olivier Cailloux, Giovanna Fancello, Alexis Tsoukiàs,...}
+\makeatletter
+	\hypersetup{
+		pdfsubject={MAVT},
+		pdfkeywords={MAVT, preference model, MCDA}
+	}
+\makeatother
 \maketitle
-\begin{abstract}
-abstract
-
-abstract
-
-abstract
-
-abstract
-\end{abstract}
 
 \tableofcontents
-
 
 \section{Introduction}
 \begin{itemize}
@@ -188,7 +179,37 @@ At=m\{Environmental,Surrounding,Leisure,Fun,Food,Cultural,\\
 \end{split}
 \end{equation}
 
-\printbibliography{Tourist.bib}
+\appendix
+\section{A simple goal}
+Data:
+\begin{labeling}{$d_t: Z → \set{1, 2, 3, 4, 5}$}
+	\item[$T$] Set of tourists ($t$ a tourist)
+	\item[$Z$] Set of aspects on which tourist has declared a degree of interest (here above, $Zt$ or $At$)
+	\item[$d^t: Z → \set{1, 2, 3, 4, 5}$] A function such that $d^t(z) \in \set{1, 2, 3, 4, 5}$ indicates, for tourist $t \in T$ and aspect $z \in Z$, the degree of interest on aspect $z$ as declared by $t$
+	\item[$i^t \in \R^+$] Intensity corresponding to $t$: the total number of seconds tourist $t$ has spent on her trip (from leaving home to returning home)
+	\item[$C_V$] The categories of places in Alghero \emph{that can be visited}, thus \emph{excluding} staying home
+	\item[$x^t: C_V → \R^+$] The vector path chosen by tourist $t$ (associates a number of seconds to each category of place) (sum of the times equal $i^t$)
+\end{labeling}
 
+Our goal is to predict $x^t$ given $d^t$ and an intensity: a number of seconds that indicates how long the tourist intends to visit for. We are allowed to use $T_1 \subseteq T$ as training data, and must use $T_2 \subseteq T$ as test data. Given a predictor $P: {\set{1, 2, 3, 4, 5}}^Z × \R^+ → {(\R^+)}^{C_V}$, the quality of $P$ is the sum, on the test data, of the distance, using L2 norm, between the prediction and the real path: quality of $P$ = $\sum_{t \in T_2} \|P(d^t, i^t) − x^t\|$.
 
+Here below we list a few possible ways of building predictors, starting from the simplest ones.
+
+\subsection{Central prediction}
+We compute the centre (using L2) of $(x^t)_{t \in T_1}$ and constantly predict this.
+
+\subsection{Regression}
+Build some regression model between ${\set{1, 2, 3, 4, 5}}^Z × \R^+$ and ${(\R^+)}^{C_V}$.
+
+\subsection{Guided regression}
+Same idea but we (somehow) use knowledge about the link between $Z$ and $C_V$.
+
+\subsection{Transformed space}
+We fix a priori partial value function $u_c: \R^+ → [0, 1]$, one for each category of place. The vector $(u_c \circ x^t): C_V → [0, 1]$ represents the values associated by tourist $t$, given its path, to each category of places. We learn a regression model (using normal or guided regression) between ${\set{1, 2, 3, 4, 5}}^Z × \R^+$ and latent weights $w^t$, in order to maximize $w^t \cdot (u_c \circ x^t)$, the value of $x^t$.
+
+\subsection{Learned transform}
+Same idea as Transformed space, but we learn the partial value functions using $T_1$.
+
+\subsection{More ideas}
+See article Siskos. See utilitaristic regression from Eyke.
 \end{document}
