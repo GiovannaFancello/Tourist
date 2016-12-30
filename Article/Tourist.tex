@@ -188,7 +188,7 @@ Data:
 	\item[$d^t: Z → \set{1, 2, 3, 4, 5}$] A function such that $d^t(z) \in \set{1, 2, 3, 4, 5}$ indicates, for tourist $t \in T$ and aspect $z \in Z$, the degree of interest on aspect $z$ as declared by $t$
 	\item[$i^t \in \R^+$] Intensity corresponding to $t$: the total number of seconds tourist $t$ has spent on her trip (from leaving home to returning home)
 	\item[$C_V$] The categories of places in Alghero \emph{that can be visited}, thus \emph{excluding} staying home
-	\item[$x^t: C_V → \R^+$] The vector path chosen by tourist $t$ (associates a number of seconds to each category of place) (sum of the times equal $i^t$)
+	\item[$x^t: C_V → \R^+$] The vector path chosen by tourist $t$ (associates a number of seconds to each category of place). By definition, $\sum_{c \in C_V} x^t(c) = i^t$.
 \end{labeling}
 
 Our goal is to predict $x^t$ given $d^t$ and an intensity: a number of seconds that indicates how long the tourist intends to visit for. We are allowed to use $T_1 \subseteq T$ as training data, and must use $T_2 \subseteq T$ as test data. Given a predictor $P: {\set{1, 2, 3, 4, 5}}^Z × \R^+ → {(\R^+)}^{C_V}$, the quality of $P$ is the sum, on the test data, of the distance, using L2 norm, between the prediction and the real path: quality of $P$ = $\sum_{t \in T_2} \|P(d^t, i^t) − x^t\|$.
@@ -205,7 +205,7 @@ Build some regression model between ${\set{1, 2, 3, 4, 5}}^Z × \R^+$ and ${(\R^
 Same idea but we (somehow) use knowledge about the link between $Z$ and $C_V$.
 
 \subsection{Transformed space}
-We fix a priori partial value function $u_c: \R^+ → [0, 1]$, one for each category of place. The vector $(u_c \circ x^t): C_V → [0, 1]$ represents the values associated by tourist $t$, given its path, to each category of places. We learn a regression model (using normal or guided regression) between ${\set{1, 2, 3, 4, 5}}^Z × \R^+$ and latent weights $w^t$, in order to maximize $w^t \cdot (u_c \circ x^t)$, the value of $x^t$.
+We fix (a priori) a set of partial value functions $u_c: \R^+ → [0, 1]$, one for each category of place. The vector $(u_c \circ x^t): C_V → [0, 1]$ represents the values associated by tourist $t$, given its path, to each category of places. We learn a regression model (using normal or guided regression) between ${\set{1, 2, 3, 4, 5}}^Z × \R^+$ and latent weights $w^t$, in order to maximize $w^t \cdot (u_c \circ x^t)$, the value of $x^t$.
 
 \subsection{Learned transform}
 Same idea as Transformed space, but we learn the partial value functions using $T_1$.
