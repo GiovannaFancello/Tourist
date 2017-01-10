@@ -198,7 +198,10 @@ Here below we list a few possible ways of building predictors, starting from the
 \subsection{Central prediction}
 We compute the centre (using L2) of $(x^t)_{t \in T_1}$ and constantly predict this.
 
-\subsection{Regression}
+\subsection{Unlinked regression}
+Build some regression model between ${\set{1, 2, 3, 4, 5}}^Z × \R^+$ and each dimension of ${(\R^+)}^{C_V}$, separately.
+
+\subsection{Multi-task Regression}
 Build some regression model between ${\set{1, 2, 3, 4, 5}}^Z × \R^+$ and ${(\R^+)}^{C_V}$.
 
 \subsection{Guided regression}
