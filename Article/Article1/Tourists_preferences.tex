@@ -27,39 +27,53 @@ abstract
 
 \section{Introduction}
 \begin{itemize}
-   \item [-]state of the art and aim of the paper
+   \item [-]principal aim of the paper: to define public policies legitimated and that take account of people values and diversities.
    \item [-]the tourist as one of the population in the city
    \item [-]the possibility to access to some urban opportunity in order to improve their urban-quality of life (in a capability theory point of view)
  \end{itemize}
 
 \textbf{Main Objective.}
-The aim of this work is to define a method able to inspect values in space as regard to people variety. The purpose is to personalize the territorial offer of opportunities (to do or be in space) in respect to people values, preferences and needs. Especially, the research inquires how to collect and to analyse these features in order to be useful for the policy cycle and how to synthesize them in space considering the differences among individual values. In order to do this, we propose a replicable method able to inspect values that individuals give to different spaces.
+The aim of this work is to define a method able to inspect values in space as regard to people variety in order to define public policies legitimated by different categories of people, policies that take account of people values and diversities. The purpose is to personalize the territorial offer of opportunities (to do or be in space) in respect to people values, preferences and needs. Especially, the research inquires how to collect and to analyse these features in order to be useful for the policy cycle and how to synthesize them in space considering the differences among individual values. In order to do this, we propose a replicable method able to inspect values that individuals give to different spaces.
 
-Values in space can be learned by behaviours or declared preferences.(LITERATURE REVIEW)
+Values in space can be learned by behaviours or declared preferences. 
+In this study we use both type of data and experiment different methods and a replicable procedure for the analysis of preferences of tourists in the Alghero territory. Among the methods we used: multiple regression model; additive value function models (UTA family); multi task regression model;...
 
-We experiment different methods and define a replicable procedure for the analysis of preferences in the territory. Among the methods we used: multiple regression model; additive value function models (UTA family); multi task regression model;...
-
-\section{The model}
-HERE WE CAN DESCRIBE THE METHOD IN GENERAL? OR IT IS BETTER TO DO THIS DIRECTLY WITH THE CASE STUDY?
+In the following paragraphs we first describe the problem, than we explore the literature in order to select the methods more suitable for our analysis. In the following section we explain the final method proposing an application to the case study. Finally, some policy analytics recommendation are given.
 
 
 \section{The problem. Alghero case study}
-We experiment our method in the Alghero city. Alghero is a touristic city in the north east coast of the Sardinian Region (ITALY). One of the problem of  Alghero is the economic dependance from the touristic season for the development of the territory. This economic development can bring to positive but also negative consequences. Therefore, a strategic public policy should consider, among others, needs and preferences of tourist population in order to strategically improve the quality of life of the territory.
+ Alghero is a city in the north east coast of the Sardinian Region (ITALY), characterized by an economic dependance from the touristic season for the development of the territory. This economic development can bring to positive but also negative consequences, given by that temporal economy that risk to influence the territorial development, as well as to the services and opportunities that has to be strategically improved in order to meet the needs of different population that live the city (CITARE MARTINOTTI). The activities undertaken by the people varies, among others, according to individual characteristics and interests \cite{Kellner2016}, to spatial distribution of urban and territorial activities and to quality of the accessibility in the city \cite{Blecic2015a}.
+Therefore, a strategic public policy should consider, among others, needs and preferences of tourist population in order to strategically improve the quality of life of the territory. Especially, a policy attentive to different people values can help in developing personal urban capabilities with the improvement of that urban opportunities that are most valued by tourist population (what people value \cite{Sen1999}.
 
-(\textcolor{red}{BRIEF DESCRIPTION OF THE ALGHERO CONTEXT})
+ In order to help policy makers in define new public policies, this work  aims to define groups of people with common values of the space. A purpose different from the statistical analysis of people in respect to the correspondent tourist socio-professional class and behaviours. What we try to do is a clusterization of population with similar values and interests in the city. This allows to define territorial development policies focused to specific tourist population and to improve the urban opportunities of the territory. Moreover, this analysis allows to define and to propose to different populations new doings and beings (urban capabilities) that they didn't already knows. Similar people in the same territory have similar urban capabilities, but may be they are not interested in them in the same manner, as they didn't value all these capabilities as important. In this work we want to bring to light similar values in space, similar capabilities that can be offered of people of the same group.
 
-%In order to help policy making in define new public policies, this work  aims to define the tourists values in space in respect to the correspondent tourist socio-professional class and behaviours. This allows to define territorial development policies focused to specific tourist population and to improve the urban opportunities of the territory.
 
-We analyse the tourist population in Alghero during the 2014 touristic "low season" (October-November), considering that Alghero's peek period is the summer season with highest tourist concentration between July and September. Data collection is carried out in this period because we want to catch urban limits and opportunities in a period of reduction of urban activities and not bathing season and have significant information for design a public policy aimed to deseasonalize this trend.
-We used data collected for the project \textcolor{red}{XXX}. Two type of data were collected in the survey: interviews to inspect expectations and degree of satisfaction and GPS movement tracking to explore tourists' movements in the territory.
+\subsection{The survey}
+We analyse the tourist population in Alghero during the 2014 touristic "low season" (October-November), considering that Alghero's peek period is the summer season with highest tourist concentration between July and September. Data collection was carried out in this period because we want to catch urban limits and opportunities in a period of reduction of urban activities and not bathing season and have significant information for design a public policy aimed to deseasonalize this trend. These data was collected for the project \textcolor{red}{XXX, lo inseriamo nel testo o in nota?}.
+Two type of data were collected in the survey: interviews to inspect expectations and degree of satisfaction and GPS movement tracking to explore tourists' movements in the territory.
 
-We collect 75 questionnaires representing \textbf{225 tourists $T$} described by a \textbf{set of attributes $A$}
+Especially, we dispose of 75 questionnaires representing \textbf{225 tourists $T$} described by a \textbf{set of attributes $A$}
 \begin{equation}
 A=\{gender,age,country,level of study,profession,willingness to pay\}
 \end{equation}
 We know the \textbf{tourists' paths} in the territory, in a space described by \textbf{Coordinates} and \textbf{Time}.
 Let $S$ denote the set of possible coordinates and $\tau$ the set of possible times.  A path is a set of points $P \subseteq S \times \tau$.\\
 Finally we define a set of \textbf{Categories of places} $C \in S$ that a tourist can choose in Alghero city.
+
+In order to have coordinates divided in categories of space we did a spatial classification analysis of  coordinates data (Figure \ref{10places}). Especially we:
+\begin{enumerate}
+\item \textbf{Split the space} Subdivide the territory in different places $p$.
+\item \textbf{Classify spaces.} Classify each place $p$ in a Category $c$
+\item \textbf{Count the time.} For each tourists' path we analyse the time spent for any category of place $c$.For each $t$ we analyse how much time the he spent in it $x^t (c)$. The time spent in any category is given by the sum of the different ranges of time in this category of place $x^t (c_v)$. We consider that each tourist has 15 hours to spend in a day.
+\end{enumerate}
+
+\begin{figure}
+  \centering
+    \includegraphics[width=\textwidth]{10places}\\
+  \caption{Classification of paths in respect to categories of places}\label{10places}
+\end{figure}
+
+
 Let $C=\{c_1, \ldots, c_7\}$ denote the set of categories of places.
 
 \begin{table}[h]
@@ -124,22 +138,6 @@ In synthesis the set of data is given by the:
        \end{description}
 \textcolor {red}{$x^t$ E' l'insieme DI PUNTI CHE FORMANO IL PERCORSO FATTO DA UN TURISTA IN UNA DETERMINATA CATEGORIA DI LUOGO, iN REALTà IL PERCORSO è DIVERSO, NOI ABBIAMO PRESO TUTTI I PUNTI INTERNI AD UN LUOGO}
 
-\subsection{Preparazione dei dati?}
-\textcolor {red}{WE ARE INTERESTED IN THIS DESCRIPTION OR NOT?}
-In order to have coordinates divided in categories of space we did a spatial classification analysis of  coordinates data (Figure \ref{10places}). Especially we:
-\begin{enumerate}
-\item \textbf{Split the space} Subdivide the territory in different places $p$.
-\item \textbf{Classify spaces.} Classify each place $p$ in a Category $c$
-\item \textbf{Count the time.} For each tourists' path we analyse the time spent for any category of place $c$.For each $t$ we analyse how much time the he spent in it $x^t (c)$. The time spent in any category is given by the sum of the different ranges of time in this category of place $x^t (c_v)$. We consider that each tourist has 15 hours to spend in a day.
-\end{enumerate}
-
-\begin{figure}
-  \centering
-    \includegraphics[width=\textwidth]{10places}\\
-  \caption{Classification of paths in respect to categories of places}\label{10places}
-\end{figure}
-
-
 
 \subsection{A simple goal}
  DA PROPOSTA DI OLIVIER
@@ -162,8 +160,40 @@ Here below we list a few possible ways of building predictors, starting from the
 \end{itemize}
 
 
+\section{Background}
+In order to define a method to analyse values in space for different touristic populations we can use several methods. In literature we can distinguish almost two fields of research that interested in our research.
+\begin{itemize}
+    \item {Analysis of tourist behaviours in space}
+    \item {Analysis of people values (in respect to declared preferences or judgments)}
+\end{itemize}
+These two fields have to be combined for our research problem, especially we can consider the first analysis of tourist behaviour as the method to have data  for the analysis of people values.
 
-\section{Unlinked regression}
+
+\subsection{Tourist behaviours in space}
+The most common way to study tourists’ behaviours in time and space are various methods of diary (re)construction \cite{Shoval2014}. New possibilities have arisen by the development of automated tracking, above all the satellite-based (e.g. GPS) technologies for automatic position tracking with high time and spatial resolution.
+Even if methods for surveying and analysing spatio-temporal behaviour are, of course, becoming highly developed in transportation research and in social sciences in general, comparatively little attention was being paid to the spatial and temporal behaviour of tourists, and systematic studies taking advantage of the technological developments offered by the high precision position tracking are still relatively few \cite{Shoval2007};\cite{Shoval2014}.
+In recent years scholars have started to break ground in this specific domain of applied research, experimenting and exploring advantages and disadvantages of satellite-based positioning technologies for the study of tourists’ spatio-temporal behaviours \cite{Shoval2010}.
+Different methods have been reported for tracking tourist spatio-temporal behaviour \cite{Kellner2016}:
+\begin{itemize}
+    \item direct observation of tourists’ activities, with interviews or remote observations;
+    \item {time-space budget techniques \cite{Pearce1988} which analyse tourists’ activities within destina-tions by using diaries, questionnaires and interviews;}
+    \item {video-based tracking analysis, used to track tourists movements through video footages;}
+    \item {smartphones with apps using positioning systems;}
+    \item {specialized GPS tracking devices}
+    \item {land-based tracking systems that collect data thanks to radio technology.}
+\end{itemize}
+Many studies report observations on a small scale, focusing on particular urban areas or activities that have a clearly defined entry and exit point, such as natural parks or historical centres \cite{Shoval2014}. Also many urban contexts have been analysed, among which Rome \cite{Calabrese2006}, Lago del Garda \cite{Bruno2010}, Canberra and Sydney \cite{Edwards2009}, Salzburg \cite{Kellner2016}. On the other side, there are studies that attempt to analyse tourist behaviours at very large scale (e.g. on the national scale, by using mobile phones data \cite{Ahas2007}.
+Different statistical and visualisation techniques may be employed to analyse and represent such spatial data. Frequently spatial temporal data are used only to de-scribe the tourists track in maps. Sometimes these spatial maps are combined further information collected through questionnaires. This allows to link spatial temporal behaviour to a specific tourist category of population. Furthermore, of interest are studies trying to predict visitors whereabouts, how long they will stay in a place, or carry out a specific activity \cite{Chhetri2010}.
+
+
+\subsection{People values and preferences}
+Value theory
+
+
+
+
+
+\subsubsection{Unlinked regression}
 We start building predictors with the multiple regression model.
 
 The definition of $x^t$ depends on the number of seconds in a category of place(\textcolor{red}{HO BISOGNO DI SPIEGARE IL PROBLEMA DAL PUNTO DI VSTA FORMALE?}).  This means that we have two dependent elements that are influenced  by the preferences of people ($d^t$). We cannot use a standard multiple linear regression model, for this reason, in order to directly predict $x^t$, we develop an unlinked  multiple regression model aimed to investigate the relation among the different elements separately.
